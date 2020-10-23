@@ -60,8 +60,10 @@ public static String arrayDeepToString(int[][] arr){
       }
     }
     newString = newString + "}";
-    newString = newString + "\n";
+    if (i != arr.length - 1){
+      newString = newString + ",\n";
+    }
   }
-  return newString + "}";
+  return newString + "\n}";
 }
 }
