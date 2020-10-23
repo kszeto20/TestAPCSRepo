@@ -28,10 +28,13 @@ public class Demo {
     System.out.println();
 
     System.out.println(arrayDeepToString(w));
+    System.out.println();
 
     int[][] nArr = create2DArray(Integer.parseInt(args[0]), Integer.parseInt(args[1]), Integer.parseInt(args[2]));
-
+    int[][] RNArr = create2DArrayRandomized(Integer.parseInt(args[0]), Integer.parseInt(args[1]), Integer.parseInt(args[2]));
     System.out.println(arrayDeepToString(nArr));
+    System.out.println();
+    System.out.println(arrayDeepToString(RNArr));
   }
 
 
@@ -77,6 +80,20 @@ public static int[][] create2DArray(int rows, int cols, int maxValue){
   int nArr[][] = new int[rows][cols];
   for (int i = 0; i < nArr.length; i++){
     for (int j = 0; j < nArr[i].length; j++){
+      nArr[i][j] = (int)(Math.random() * (maxValue + 1));
+    }
+  }
+  return nArr;
+}
+
+public static int[][] create2DArrayRandomized(int rows, int cols, int maxValue){
+
+  int nArr[][] = new int[rows][];
+  for (int i = 0; i < nArr.length; i++){
+    int randCols = (int)(Math.random() * (cols + 1));
+    int[] colArr = new int[randCols];
+    nArr[i] = colArr;
+    for (int j = 0; j < colArr.length; j++){
       nArr[i][j] = (int)(Math.random() * (maxValue + 1));
     }
   }
