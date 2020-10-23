@@ -10,6 +10,7 @@ public class Demo {
       a = Integer.parseInt(args[0]);
     }
     printLoop(a);
+    System.out.println();
 
     int[] one = {1};
     int[] two = {1,2};
@@ -24,8 +25,13 @@ public class Demo {
     System.out.println(arrToString(three));
     System.out.println(arrToString(four));
     System.out.println(arrToString(five));
+    System.out.println();
 
     System.out.println(arrayDeepToString(w));
+
+    int[][] nArr = create2DArray(Integer.parseInt(args[0]), Integer.parseInt(args[1]), Integer.parseInt(args[2]));
+
+    System.out.println(arrayDeepToString(nArr));
   }
 
 
@@ -41,10 +47,10 @@ public class Demo {
 public static String arrToString(int[] arr){
   String newString = "{";
   if (arr.length > 0){
-  for (int i = 0; i < arr.length - 1; i++){
-    newString = newString + Integer.toString(arr[i]) + ", ";
-  }
-  newString = newString + Integer.toString(arr[arr.length - 1]);
+    for (int i = 0; i < arr.length - 1; i++){
+      newString = newString + Integer.toString(arr[i]) + ", ";
+    }
+    newString = newString + Integer.toString(arr[arr.length - 1]);
   }
   return newString + "}";
 }
@@ -65,5 +71,15 @@ public static String arrayDeepToString(int[][] arr){
     }
   }
   return newString + "\n}";
+}
+
+public static int[][] create2DArray(int rows, int cols, int maxValue){
+  int nArr[][] = new int[rows][cols];
+  for (int i = 0; i < nArr.length; i++){
+    for (int j = 0; j < nArr[i].length; j++){
+      nArr[i][j] = (int)(Math.random() * (maxValue + 1));
+    }
+  }
+  return nArr;
 }
 }
