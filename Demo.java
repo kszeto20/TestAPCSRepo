@@ -54,10 +54,10 @@ public static String arrayDeepToString(int[][] arr){
   for (int i = 0; i < arr.length; i++){
     newString = newString + "{";
     for (int j = 0; j < arr[i].length; j++){
-      if (j == arr[i].length - 1){
-        newString = newString + arr[i][j];
+      newString = newString + arr[i][j];
+      if (j != arr[i].length - 1){
+        newString = newString + ", ";
       }
-      else newString = newString + arr[i][j] + ", ";
     }
     newString = newString + "}";
     newString = newString + "\n";
